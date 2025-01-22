@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: var(--font-montserrat);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.floating-diamond {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+  width: 100px; /* Reduced from previous sizes */
+  height: 100px;
+}
+
+.floating-diamond-reverse {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: float-reverse 6s ease-in-out infinite;
+  width: 80px; /* Reduced from previous sizes */
+  height: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+.holographic-text {
+  background: linear-gradient(90deg, #bacdfa, #fbc4ee, #bacdfa, #fbc4ee);
+  background-size: 300% 300%;
+  animation: gradient 8s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.diamond-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.diamond-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(251, 196, 238, 0.1) 0%, rgba(186, 205, 250, 0.1) 100%);
+  z-index: 1;
+}
+
+.hero-title {
+  background: linear-gradient(45deg, #ff69b4, #1e90ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ff69b4, #1e90ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
